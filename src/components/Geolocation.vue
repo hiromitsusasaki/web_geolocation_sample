@@ -7,7 +7,7 @@
           <div style="height: 128px;">
             <p style="margin-top: 48px;">現在地: 緯度: {{lat}}  軽度: {{long}}</p>
           </div>
-          <button type="button" class="button" v-on:click="watchLocation()">位置情報の取得を開始する</button>
+          <button type="button" class="button" v-on:click="watchLocation()">位置情報の取得を開始する</button><br />
           <button style="margin-top:48px" type="button" class="button" v-on:click="finishLocation()" >位置情報の取得を終了する</button>
         </div>
       </div>
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     watchLocation: function () {
-      navigator.geolocation.watchPosition((position) => {
+      this.watchId = navigator.geolocation.watchPosition((position) => {
         this.lat = position.coords.latitude
         this.long = position.coords.longitude
       })
