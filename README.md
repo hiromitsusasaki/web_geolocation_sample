@@ -1,24 +1,78 @@
-# web_geolocation_sample
+Web Geolocation Sample
+====
+
+## Description
+
+Geolocation APIのサンプル実装
+
+## Environment
+
+以下の手順で開発環境を構築できる
+
+### Requirement
+
+以下がインストールされていることを前提とします
+
+- nodejs
+- npm
+- firebase-cli (npm module)
 
 ## Project setup
+
 ```
-yarn install
+$ git clone git@github.com:hiromitsusasaki/web_geolocation_sample.git
+
+or
+
+$ git clone https://github.com/hiromitsusasaki/web_geolocation_sample.git
+
+$ cd web_geolocation_sample
+$ npm intall
 ```
 
-### Compiles and hot-reloads for development
+### Operation
+
+####  開発時
+
+SPAとしてローカルで起動（ホットロード）
+
 ```
-yarn serve
+$ yarn serve
 ```
 
-### Compiles and minifies for production
+### ビルド＆デプロイ
+
+#### ビルド
+
 ```
-yarn build
+$ yarn build
 ```
 
-### Lints and fixes files
+#### デプロイ
+
+firebaseにログインする（ログイン済みの場合は不要）
 ```
-yarn lint
+$ firebase login
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+firebaseプロジェクトの作成（当該vue.jsプロジェクトのデプロイのためのfirebaseプロジェクトがすでにある場合は不要）
+
+```
+$ firebase projects:create {your-project-id}
+```
+
+`.firebaserc`の`{your-project-id}`の部分を上記で作成したfirebaseプロジェクトのIDに変更する
+
+`.firebaserc`
+```
+{
+  "projects": {
+    "default": "{your-project-id}"
+  }
+}
+```
+
+firebaseにデプロイする
+```
+$ firebase deploy
+```
